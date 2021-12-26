@@ -17,7 +17,7 @@ If you don't know how to setup HTTP requests:
 ### Setting up the code
 #### Requiring ROBLOX asset
 If you don't want to setup with /client, the settings will be defaulted.
-Skip to Requiring the Main Module
+Skip to [Requiring the Main Module](https://github.com/luaexception/ROBLOX-easyWebhook#requiring-the-main-module)
 
 #### Setting up via /client
 
