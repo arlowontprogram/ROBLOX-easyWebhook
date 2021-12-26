@@ -63,7 +63,7 @@ As we now have required the Main Module, (assuming we have our Webhook's URL) we
 With the following example
 ```lua
 local webhookurl = "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-local easyWebhook = require(script.Parent.easyWebhook)
+local easyWebhook = require(script.Parent.easyWebhook) -- Replace this line with the method you used to require the main module.
 local Webhook = easyWebhook(webhookurl)
 
 Webhook:PostAsync(
