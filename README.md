@@ -14,6 +14,10 @@ If you don't know how to setup HTTP requests:
 1. Edit the game you wish to add this to, go into your game settings
 2. Under **Security**, check the **"Allow HTTP Requests"** to make sure it is enabled.
 
+### Second, if you haven't created your webhook, create it now.
+
+Discord provides a [tutorial](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) that helps you create your first webhook.
+
 ### Setting up the code
 #### Requiring ROBLOX asset
 If you don't want to setup with /client, the settings will be defaulted.
