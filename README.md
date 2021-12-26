@@ -71,3 +71,6 @@ Webhook:PostAsync(
 ... we can send content, username, avatar_url and embeds as easy as this block of text.
 
 ![image](https://user-images.githubusercontent.com/38384052/147421099-8e1079a8-331b-4971-a224-9c6491f6d374.png)
+
+# Useful Links
+[discord.club](https://discord.club/dashboard) for making embeds easier to create
