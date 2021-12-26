@@ -1,4 +1,7 @@
-local settings = require(script["easyWebhook Settings"])
+local settings = require(script["easyWebhook Settings"]) or {
+	olddomain = "discord.com",
+	maindomain = "hooks.hyra.io"
+}
 
 return function(webhookurl)
 	local webhookurl = webhookurl:gsub(settings.olddomain, settings.maindomain)
