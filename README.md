@@ -15,6 +15,11 @@ If you don't know how to setup HTTP requests:
 2. Under **Security**, check the **"Allow HTTP Requests"** to make sure it is enabled.
 
 ### Setting up the code
+#### Requiring ROBLOX asset
+If you don't want to setup with main/client, the settings will be defaulted.
+Skip to Requiring the Main Module
+
+#### Setting up via main/client
 
 in [/client](https://github.com/luaexception/ROBLOX-easyWebhook/tree/main/client)
 - copy main.lua and create a ModuleScript inside of ServerScriptService and name it **easyWebhook**
@@ -40,6 +45,12 @@ The code will automatically replace discord.com with hooks.hyra.io
 
 ```lua
 local easyWebhook = require(game.ServerScriptService:WaitForChild("easyWebhook"))
+```
+
+or if you wish to load the module via ROBLOX
+
+```lua
+local easyWebhook = require(8368541547)
 ```
 
 # Posting Requests
