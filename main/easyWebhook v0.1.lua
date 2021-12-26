@@ -38,9 +38,7 @@ return function(url)
 	-- check https enabled
 	assert(easyFunctions:CheckHTTPEnabled(), "easyWebhook | HTTPS is not enabled! Enable this setting via game settings.")
 	local mainfunctions = {}
-	
-	print(url)
-	
+		
 	function mainfunctions:PostAsync(data)
 		if data then
 			local foundContent = false
@@ -62,12 +60,11 @@ return function(url)
 				local ok, msg = pcall(function()
 					requestresponse = http:PostAsync(url, data, Enum.HttpContentType.ApplicationJson, false)
 				end)
-				print(requestresponse)
 				if not ok then
 					warn("easyWebhook | " .. msg)
-					return {status = 200, message = msg}
+					return {status = "error", message = msg}
 				else
-					return {status = 200, message = msg}
+					return {status = "succes", message = msg}
 				end
 			else
 				warn("easyWebhook | no content type provided or data provided for content.")
