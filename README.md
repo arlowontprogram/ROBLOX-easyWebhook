@@ -16,10 +16,10 @@ If you don't know how to setup HTTP requests:
 
 ### Setting up the code
 #### Requiring ROBLOX asset
-If you don't want to setup with main/client, the settings will be defaulted.
+If you don't want to setup with /client, the settings will be defaulted.
 Skip to Requiring the Main Module
 
-#### Setting up via main/client
+#### Setting up via /client
 
 in [/client](https://github.com/luaexception/ROBLOX-easyWebhook/tree/main/client)
 - copy main.lua and create a ModuleScript inside of ServerScriptService and name it **easyWebhook**
