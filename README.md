@@ -1,5 +1,6 @@
 # ROBLOX-easyWebhook
-[![Latest Version]](https://img.shields.io/github/manifest-json/v/luaexception/ROBLOX-easyWebhook)
+![GitHub manifest version](https://img.shields.io/github/manifest-json/v/luaexception/ROBLOX-easyWebhook)
+
 ###### *A new simple way of sending discord webhooks on roblox.*
 
 easyWebhook is a ROBLOX based method of creating and posting discord webhooks, in a simpler fashon.
