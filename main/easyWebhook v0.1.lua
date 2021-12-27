@@ -17,14 +17,6 @@ function easyFunctions:CheckHTTPEnabled()
 	return ok
 end
 
-function easyFunctions:JSONify(data)
-	return http:JSONEncode(data)
-end
-
-function easyFunctions:STRINGify(data)
-	return http:JSONDecode(data)
-end
-
 function easyFunctions:CheckIsDataType(datatype)
 	for datatypetree, _ in pairs(validDatatypes) do
 		if datatypetree == datatype then
@@ -55,23 +47,26 @@ return function(url)
 				end
 			end
 			if foundContent then
-				local data = easyFunctions:JSONify(data)
+				print("found content, continue")
+				local data = http:JSONEncode(data)
 				local requestresponse
 				local ok, msg = pcall(function()
 					requestresponse = http:PostAsync(url, data, Enum.HttpContentType.ApplicationJson, false)
 				end)
+				print(requestresponse)
 				if not ok then
 					warn("easyWebhook | " .. msg)
-					return {status = "error", message = msg}
+					return false
 				else
-					return {status = "succes", message = msg}
+					return true
 				end
 			else
 				warn("easyWebhook | no content type provided or data provided for content.")
+				return false
 			end
 		else
 			warn("easyWebhook | No data was sent to function..")
-			return
+			return false
 		end
 	end
 	
