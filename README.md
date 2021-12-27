@@ -84,7 +84,7 @@ local Success = Webhook:PostAsync(
 )
 
 if not Success then
-	warn("There has been an issue sending the webhook request.
+	warn("There has been an issue sending the webhook request.")
 else
 	print("Successfully sent webhook!")
 end
