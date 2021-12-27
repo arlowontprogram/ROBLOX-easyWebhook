@@ -3,8 +3,8 @@ local http = game:GetService("HttpService")
 
 local validDatatypes = {
 	["content"] = {typeis = "string", length = 2000},
-	["username"] = {typeis = "string", length = math.huge},
-	["avatar_url"] = {typeis = "string", length = math.huge},
+	["username"] = {typeis = "string", length = 256},
+	["avatar_url"] = {typeis = "string", length = 256},
 	["embeds"] = {typeis = "table", length = 10}
 }
 
