@@ -66,7 +66,7 @@ local webhookurl = "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXX/XXXXXXXX
 local easyWebhook = require(script.Parent.easyWebhook) -- Replace this line with the method you used to require the main module.
 local Webhook = easyWebhook(webhookurl)
 
-Webhook:PostAsync(
+local Success = Webhook:PostAsync(
 	{
 		content = "Hello!",
 		username = "noob",
@@ -82,6 +82,12 @@ Webhook:PostAsync(
 		}
 	}
 )
+
+if not Success then
+	warn("There has been an issue sending the webhook request.
+else
+	print("Successfully sent webhook!")
+end
 ```
 ... we can send content, username, avatar_url and embeds as easy as this block of text.
 
