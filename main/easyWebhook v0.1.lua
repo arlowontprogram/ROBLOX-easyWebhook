@@ -13,7 +13,6 @@ function easyFunctions:CheckHTTPEnabled()
 	local ok, msg = pcall(function()
 		request = http:GetAsync('https://google.com')
 	end)
-	if not ok then warn("easyWebhook | " .. msg) end
 	return ok
 end
 
