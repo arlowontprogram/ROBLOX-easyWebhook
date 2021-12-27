@@ -47,13 +47,11 @@ return function(url)
 				end
 			end
 			if foundContent then
-				print("found content, continue")
 				local data = http:JSONEncode(data)
 				local requestresponse
 				local ok, msg = pcall(function()
 					requestresponse = http:PostAsync(url, data, Enum.HttpContentType.ApplicationJson, false)
 				end)
-				print(requestresponse)
 				if not ok then
 					warn("easyWebhook | " .. msg)
 					return false
