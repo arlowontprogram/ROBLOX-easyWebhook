@@ -1,4 +1,4 @@
-local settings = require(script["easyWebhook Settings"]) or {
+local settings = if script:FindFirstChild("easyWebhook Settings") then require(script:FindFirstChild("easyWebhook Settings")) else {
 	olddomain = "discord.com",
 	maindomain = "hooks.hyra.io"
 }
