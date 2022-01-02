@@ -10,7 +10,7 @@ local validDatatypes = {
 }
 
 function easyFunctions:Warn(message)
-    if displayMessages then
+    if not displayMessages then
         warn("easyWebhook | " .. message)
     end
 end
