@@ -68,8 +68,8 @@ local settings = {
 	HidePrints = false
 }
 local webhookurl = "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-local easyWebhook = require(script.Parent.easyWebhook, settings) -- Replace this line with the method you used to require the main module.
-local Webhook = easyWebhook(webhookurl)
+local easyWebhook = require(script.Parent.easyWebhook) -- Replace this line with the method you used to require the main module.
+local Webhook = easyWebhook(webhookurl, settings)
 
 local Success = Webhook:PostAsync(
 	{
