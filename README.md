@@ -34,12 +34,12 @@ Your hierarchy should now look like:
    - easyWebhook
       - easyWebhook Settings
 ## Settings
-###### as of first release..
-Your settings is located in **easyWebhook Settings**, and will look like
+Your settings will be sent to the easyWebhook loader in your script, it should look like this;
 ```lua
-return {
+local settings = {
 	olddomain = "discord.com",
-	maindomain = "hooks.hyra.io"
+	maindomain = "hooks.hyra.io",
+	HidePrints = false
 }
 ```
 ... We are changing discord.com to hooks.hyra.io because ROBLOX now blocks requests going to the discord.com domain.
@@ -62,8 +62,13 @@ As we now have required the Main Module, (assuming we have our Webhook's URL) we
 
 With the following example
 ```lua
+local settings = {
+	olddomain = "discord.com",
+	maindomain = "hooks.hyra.io",
+	HidePrints = false
+}
 local webhookurl = "https://discord.com/api/webhooks/XXXXXXXXXXXXXXXXXX/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
-local easyWebhook = require(script.Parent.easyWebhook) -- Replace this line with the method you used to require the main module.
+local easyWebhook = require(script.Parent.easyWebhook, settings) -- Replace this line with the method you used to require the main module.
 local Webhook = easyWebhook(webhookurl)
 
 local Success = Webhook:PostAsync(
