@@ -1,5 +1,6 @@
 local easyFunctions = {}
 local http = game:GetService("HttpService")
+local displayMessages = false
 
 local validDatatypes = {
 	["content"] = {typeis = "string", length = 2000},
@@ -7,6 +8,12 @@ local validDatatypes = {
 	["avatar_url"] = {typeis = "string", length = 256},
 	["embeds"] = {typeis = "table", length = 10}
 }
+
+function easyFunctions:Warn(message)
+    if displayMessages then
+        warn("easyWebhook | " .. message)
+    end
+end
 
 function easyFunctions:CheckHTTPEnabled()
 	local request
@@ -25,11 +32,15 @@ function easyFunctions:CheckIsDataType(datatype)
 	return false
 end
 
-return function(url)
+return function(url, settings)
 	-- check https enabled
 	assert(easyFunctions:CheckHTTPEnabled(), "easyWebhook | HTTPS is not enabled! Enable this setting via game settings.")
 	local mainfunctions = {}
 		
+    -- settings
+    displayMessages = settings.HidePrints or false
+    
+    -- functions
 	function mainfunctions:PostAsync(data)
 		if data then
 			local foundContent = false
@@ -40,7 +51,7 @@ return function(url)
 						foundContent = true
 					end
 					if #datainformation > validDatatypes[datatype].length then
-						warn(string.format("easyWebhook | %s exceeds the limit (%i) by %i", datatype, validDatatypes[datatype].length, #datainformation - validDatatypes[datatype].length))
+						easyFunctions:Warn(string.format("easyWebhook | %s exceeds the limit (%i) by %i", datatype, validDatatypes[datatype].length, #datainformation - validDatatypes[datatype].length))
 						return
 					end
 				end
@@ -52,17 +63,17 @@ return function(url)
 					requestresponse = http:PostAsync(url, data, Enum.HttpContentType.ApplicationJson, false)
 				end)
 				if not ok then
-					warn("easyWebhook | " .. msg)
+					easyFunctions:Warn("easyWebhook | " .. msg)
 					return false
 				else
 					return true
 				end
 			else
-				warn("easyWebhook | no content type provided or data provided for content.")
+				easyFunctions:Warn("easyWebhook | no content type provided or data provided for content.")
 				return false
 			end
 		else
-			warn("easyWebhook | No data was sent to function..")
+			easyFunctions:Warn("easyWebhook | No data was sent to function..")
 			return false
 		end
 	end
