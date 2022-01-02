@@ -1,9 +1,16 @@
-local settings = if script:FindFirstChild("easyWebhook Settings") then require(script:FindFirstChild("easyWebhook Settings")) else {
+local settings = {
 	olddomain = "discord.com",
-	maindomain = "hooks.hyra.io"
+	maindomain = "hooks.hyra.io",
+    	HidePrints = false
 }
 
-return function(webhookurl)
-	local webhookurl = webhookurl:gsub(settings.olddomain, settings.maindomain)
-	return require(8368124124)(webhookurl)
+return function(webhookurl, settingsfromfunctionrun)
+	-- change settings if any has been passed through
+	local settingsforruntime = settingsfromfunctionrun or settings
+	local webhookurl = webhookurl:gsub(settingsforruntime.olddomain, settingsforruntime.maindomain)
+	-- hide unnecessary settings from being sent
+	table.remove(settingsforruntime, table.find(settingsforruntime, "maindomain"))
+	table.remove(settingsforruntime, table.find(settingsforruntime, "olddomain"))
+	-- return module
+	return require(8368124124)(webhookurl, settingsforruntime)
 end
